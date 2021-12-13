@@ -1,2 +1,2 @@
 # jhones_framework
-Base para meus projetos
+Estrutura base para meus projetos
