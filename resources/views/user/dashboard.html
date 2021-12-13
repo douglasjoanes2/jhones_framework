@@ -1,0 +1,18 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+	<div class="content">
+
+		<div class="row">
+			<div class="col-md-3">
+                {% include "user/user-sidebar.html" %}
+            </div>
+			<div class="col-md-9">
+				<h1>User Dashboard</h1>
+				<p>Parabéns <strong>{{user.name}}</strong>, agora você tem acesso ao seu painel de controle ;)</p>
+				
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

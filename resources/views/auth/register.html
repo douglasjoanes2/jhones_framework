@@ -1,0 +1,50 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+	<div class="content">
+		{% if created_account %}
+			<div class="row">
+				<div class="col-md-6 mx-auto">
+					<div class="text-center">
+						<h3>Cadastro realizado com sucesso!</h3>
+						<p>Parabéns! Seu cadastro foi realizado com sucesso. Em até 10 minutos você receberá um e-mail de confirmação contendo um link para a ativação da sua conta.</p>
+						<a href="#" class="btn btn-outline-primary">Ir para a home</a>
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<div class="auth-form row justify-content-center align-items-center">
+				<div class="col-md-4">
+					<h3 class="text-center mb-3">Cadastre-se</h3>
+					<form action="{{registerUrl()}}" method="post">
+						<div class="form_callback_message"></div>
+						<div class="mb-3">
+							<label for="name" class="form-label">Nome completo:</label>
+							<input type="text" name="name" id="name" class="form-control">
+						</div>
+						<div class="mb-3">
+							<label for="email" class="form-label">E-mail:</label>
+							<input type="email" name="email" id="email" class="form-control">
+						</div>
+						<div class="mb-3">
+							<label for="passwd" class="form-label">Senha:</label>
+							<input type="password" name="passwd" id="passwd" class="form-control">
+							<small class="emailHelp text-muted">Mínimo de 6 caracteres</small>
+						</div>
+						<div class="d-grid mb-3">
+							<button type="submit" class="btn btn-primary">Continuar</button>
+						</div>
+					</form>
+					<div class="d-flex flex-column align-items-center">
+						<small class="mb-2">Ao prosseguir você estará concordando com nossos
+							<a href="#">termos.</a>
+						</small>
+						<p>Já tem uma conta?
+							<a href="{{loginUrl()}}">Entrar</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

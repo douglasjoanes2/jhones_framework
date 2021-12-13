@@ -1,0 +1,12 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+	<div class="content">
+		<div class="d-flex justify-content-center align-items-center">
+			<h1 class="me-3 pe-3 align-top border-end inline-block align-content-center">{{error.code}}</h1>
+			<div class="inline-block align-middle">
+				<h2 class="font-weight-normal lead" id="desc">{{error.msg}}</h2>
+			</div>
+		</div>
+	</div>
+{% endblock %}

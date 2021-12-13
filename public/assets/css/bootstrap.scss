@@ -1,0 +1,16 @@
+@import "./../../../vendor/twbs/bootstrap/scss/functions";
+
+/* Default vars */
+$enable-shadows: true;
+
+$input-btn-padding-y: .5rem;
+
+@import "./../../../vendor/twbs/bootstrap/scss/variables";
+@import "./../../../vendor/twbs/bootstrap/scss/mixins";
+@import "./../../../vendor/twbs/bootstrap/scss/root";
+
+/* Custom vars */
+$input-placeholder-color: $gray-500;
+
+
+@import "./../../../vendor/twbs/bootstrap/scss/bootstrap.scss";

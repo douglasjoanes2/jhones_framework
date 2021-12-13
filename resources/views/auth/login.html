@@ -1,0 +1,29 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+<div class="content">
+<div class="auth-form row justify-content-center align-items-center">
+    <div class="col-md-4">
+        <h3 class="text-center mb-3">Entrar</h3>
+        <form action="{{loginUrl()}}" method="post" id="login-form">
+            <div class="form_callback_message"></div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail:</label>
+                <input type="text" name="email" id="email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <a href="{{forgotPasswordUrl()}}" class="float-end">Esqueceu?</a>
+                <label for="passwd" class="form-label">Senha:</label>
+                <input type="password" name="passwd" id="passwd" class="form-control">
+            </div>
+            <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+        </form>
+        <div class="d-flex flex-column align-items-center">
+            <p>Não tem uma conta? <a href="{{registerUrl()}}">Cadastre-se</a></p>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

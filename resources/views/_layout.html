@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="h-100">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{site.name}}</title>
+		<link rel="stylesheet" href="{{asset("css/bootstrap.css")}}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="{{asset("css/main.css")}}">
+		<script src="{{asset("js/jquery.js")}}"></script>
+		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+		<script src="{{asset("js/main.js")}}"></script>
+		<script src="{{asset("js/forms.js")}}"></script>
+		<script src="{{asset("js/pace.min.js")}}"></script>
+	</head>
+	<body class="d-flex flex-column h-100">
+		<div class="ajax_load"></div>
+
+		<!-- header -->
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container">
+					<a class="navbar-brand" href="{{baseUrl()}}">Meu Framework</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<!-- main menu -->
+						<ul class="navbar-nav me-auto">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="{{baseUrl()}}">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{contactUrl()}}">Contato</a>
+							</li>
+						</ul>
+
+						<!-- user menu -->
+                        <ul class="navbar-nav me-0">
+						{% if loggedUser() %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+									<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="rounded-circle" width="22" alt="avatar">
+									<span class="ms-2">{{loggedUser.name}}</span>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-end">
+								 	<li><a class="dropdown-item" href="{{userDashboardUrl()}}">Minha conta</a></li>
+									<li><a class="dropdown-item" href="{{logoutUrl()}}">Sair</a></li>
+								</ul>
+							</li>
+						{% else %}
+                            <li class="nav-item">
+								<a class="nav-link" href="{{loginUrl()}}">Entrar</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{registerUrl()}}">Cadastrar</a>
+							</li>
+						{% endif %}
+                        </ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!-- end header -->
+
+		<!-- main -->
+		<div class="main flex-shrink-0">
+			<div class="container">
+				{{ block("content") }}
+			</div>
+		</div>
+		<!-- end main -->
+
+        <!-- footer -->
+        <footer class="footer mt-auto py-3 bg-light">
+            <div class="container">
+                <span class="text-muted">Developed by: <a href="https://www.facebook.com/dsjoanes">Douglas S Joanes</a></span>
+            </div>
+        </footer>
+        <!-- end footer -->
+
+		<!-- scripts -->
+		{% block scripts %}
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+		{% endblock %}
+	</body>
+</html>
